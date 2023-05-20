@@ -1,0 +1,24 @@
+{% extends './home.html'%}
+{% load static %}
+{% block content%}
+<form method="POST">
+    <h3 class='form-heading'>INICIA SESION</h3>
+    {% csrf_token %}
+    <div>
+        {{form.email.label}}
+        {{form.email}}    
+    <div>
+    <div>
+        {{form.password.label}}
+        {{form.password}}
+    </div>
+    <button type='submit'>Inicia Sesion</button>
+</form>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}
