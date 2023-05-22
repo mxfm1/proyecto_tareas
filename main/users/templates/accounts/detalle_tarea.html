@@ -1,0 +1,39 @@
+{% extends './base.html'%}
+{% load static %}
+{% block tareas %}
+<div class="container">
+    <h1 class="title">TITULO TAREA</h1>
+    <div class="text-right">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="d-flex justify-content-end">
+            <div class="btn-group">
+              <button>Editar</button>
+              <form action="{% url 'detalle_tarea' tarea.id %}" method="post" id="form-borrar-tarea" onsubmit="return confirmarBorrado()">
+                {% csrf_token %}
+                <input type="hidden" name="accion" value="borrar">
+                <button type="submit" class="btn btn-danger">Borrar</button>
+              </form>
+              <button>Completar</button>
+              <button><a href="{% url 'home' %}" class="btn btn-secondary">Volver</a></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Fecha Vencimiento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>None</td>
+          <td>None</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+

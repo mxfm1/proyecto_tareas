@@ -1,3 +1,64 @@
+/* ESTILOS TAREAS */
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .buttons {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .task-table {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .task-table th,
+  .task-table td {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .task-table th {
+    background-color: #f2f2f2;
+  }
+
+.title-container {
+    display: flex;
+    justify-content: end;
+  }
+  
+.content-container {
+    margin-top: 200px; /* Ajusta este valor según sea necesario */
+  }
+
+.navbar {
+    z-index: 1000;
+}
+
+.tareas-container{
+    border: 1px solid;
+}
+.table-container {
+    width: 100%;
+}
+  
+.table-container table {
+    width: 100%;
+}
+
 /* Aplica un borde y margen alrededor del formulario */
 form {
     border: 2px solid black;
@@ -40,10 +101,6 @@ button[type="submit"] {
     margin-left: 10px; /* ajusta el espacio entre la imagen y el texto según tus necesidades */
     font-size: 24px; /* ajusta el tamaño de fuente según tus necesidades */
     font-weight: bold;
-}
-.navbar-right{
-    float: left;
-    margin-right: 10px;
 }
 
 /* Config Formularios*/
