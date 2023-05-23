@@ -2,12 +2,16 @@
 
 {% block tareas %}
 <div class="container">
-  <h1 class="title">Tabla de Tareas</h1>
+  <h1 class="title">{{tarea.titulo}}</h1>
   
   <div class="row align-items-center">
     <div class="col">
       <div class="d-flex justify-content-end">
         <div class="btn-group">
+          <button class="btn btn-secondary"><a class="text-dark text-decoration-none" href="?tipo_tareas=todas">Todas</a></button>
+          <button class="btn btn-danger"><a class="text-dark text-decoration-none" href="?tipo_tareas=pendiente">Pendiente</a></button>
+          <button class="btn btn-secondary"><a class="text-dark text-decoration-none" href="?tipo_tareas=en progreso">En Progreso</a></button>
+          <button class="btn btn-success"><a class="text-dark text-decoration-none" href="?tipo_tareas=completada">Completada</a></button>
         </div>
       </div>
     </div>

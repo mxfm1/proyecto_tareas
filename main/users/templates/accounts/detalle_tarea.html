@@ -8,7 +8,7 @@
         <div class="col">
           <div class="d-flex justify-content-end">
             <div class="btn-group">
-              <button>Editar</button>
+              <button><a class='btn btn-secondary' href="{% url 'actualizar_tarea' tarea.id%}">Editar</a></button>
               <form action="{% url 'detalle_tarea' tarea.id %}" method="post" id="form-borrar-tarea" onsubmit="return confirmarBorrado()">
                 {% csrf_token %}
                 <input type="hidden" name="accion" value="borrar">
