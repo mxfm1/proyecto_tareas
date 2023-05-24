@@ -2,7 +2,7 @@
 {% load static %}
 {% block tareas %}
 <div class="container">
-    <h1 class="title">TITULO TAREA</h1>
+    <h1 class="title">{{tarea.titulo}}</h1>
     <div class="text-right">
       <div class="row align-items-center">
         <div class="col">
@@ -29,8 +29,8 @@
       </thead>
       <tbody>
         <tr>
-          <td>None</td>
-          <td>None</td>
+          <td>{{tarea.descripcion}}</td>
+          <td>{{tarea.fecha_vencimiento}}</td>
         </tr>
       </tbody>
     </table>

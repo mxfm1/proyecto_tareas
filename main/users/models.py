@@ -34,7 +34,7 @@ class Tareas(models.Model):
     estado = models.ForeignKey(Estados,on_delete=models.CASCADE)
     etiqueta = models.ForeignKey(Etiqueta,on_delete=models.CASCADE)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    # observacion = models.TextField(max_length=255, null=True)
+    observacion = models.TextField(max_length=255, null=True)
     def save(self,*args,**kwargs):
         if self.fecha_vencimiento and isinstance(self.fecha_vencimiento,str):
             self.fecha_vencimiento = datetime.strptime(self.fecha_vencimiento,"%d/%m/%Y %H:%M:%S")

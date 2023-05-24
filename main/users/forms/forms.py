@@ -48,7 +48,7 @@ class CrearTareasForm(forms.ModelForm):
     
     class Meta:
         model = Tareas
-        fields = ['titulo','descripcion','fecha_vencimiento','estado','etiqueta']
+        fields = ['titulo','descripcion','fecha_vencimiento','estado','etiqueta','observacion']
         
     def save(self,commit=True):
         tarea = super().save(commit=False)
