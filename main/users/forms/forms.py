@@ -8,6 +8,7 @@ from ..models import Etiqueta, Estados, Tareas
 class CreateUserForm(UserCreationForm):
     first_name = forms.CharField(label='Primer Nombre')
     last_name = forms.CharField(label='Apellido')
+    rut = forms.CharField(max_length=25)
     email = forms.CharField(label='E-mail')
     password1 = forms.CharField(label='Contraseña',widget=forms.PasswordInput(attrs={'placeholder':'Contraseña...'}))
     password2 = forms.CharField(label='Confirmar Contraseña',widget=forms.PasswordInput(attrs={'placeholder':'Confirma tu contraseña...'}))

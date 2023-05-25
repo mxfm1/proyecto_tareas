@@ -8,7 +8,7 @@ from django.views import View
 from django.views.generic.edit import CreateView 
 from django.views.generic.detail import DetailView
 from django.views.generic import UpdateView
-from .models import Tareas,User
+from .models import Estados, Tareas,User
 
 from .forms.forms import CreateUserForm,LoginForm,CrearTareasForm
 from django.contrib import messages
@@ -52,6 +52,11 @@ class DetalleTarea(View):
         accion = request.POST.get('accion')
         if accion == 'borrar':
             tarea.delete()
+            return redirect('home')
+        if accion == 'completar':
+            estado_completado = Estados.objects.get(id=3)
+            tarea.estado = estado_completado
+            tarea.save()
             return redirect('home')
         return render(request,self.template_name,{'tarea':tarea})
 def registerPage(request):

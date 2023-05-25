@@ -14,7 +14,11 @@
                 <input type="hidden" name="accion" value="borrar">
                 <button type="submit" class="btn btn-danger">Borrar</button>
               </form>
-              <button>Completar</button>
+              <form method='post'>
+                {% csrf_token %}
+                <input type='hidden' name='accion' value='completar'>
+                <button type='submit' class='btn btn-secondary'>Completar</button>
+              </form>
               <button><a href="{% url 'home' %}" class="btn btn-secondary">Volver</a></button>
             </div>
           </div>
