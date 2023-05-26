@@ -31,6 +31,7 @@
         <th>Estado</th>
         <th>Etiqueta</th>
         <th>Fecha de Vencimiento</th>
+        <th>Prioridad</th>
         <th>Detalle de Tarea</th>
       </tr>
     </thead>
@@ -41,10 +42,12 @@
         <td>{{ tarea.estado }}</td>
         <td>{{ tarea.etiqueta }}</td>
         <td>{{ tarea.fecha_vencimiento }}</td>
+        <td>{{ tarea.prioridad }}</td>
         <td><a href="{% url 'detalle_tarea' pk=tarea.id %}">info</a></td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </div>
+
 {% endblock %}

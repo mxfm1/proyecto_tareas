@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 from django import forms
 
-from ..models import Etiqueta, Estados, Tareas
+from ..models import Etiqueta, Estados, Prioridades, Tareas
 
 class CreateUserForm(UserCreationForm):
     first_name = forms.CharField(label='Primer Nombre')
@@ -46,10 +46,11 @@ class CrearTareasForm(forms.ModelForm):
     fecha_vencimiento = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'type':'datetime-local'}))
     estado = forms.ModelChoiceField(queryset=Estados.objects.all())
     etiqueta = forms.ModelChoiceField(queryset=Etiqueta.objects.all())
+    prioridad = forms.ModelChoiceField(queryset=Prioridades.objects.all())
     
     class Meta:
         model = Tareas
-        fields = ['titulo','descripcion','fecha_vencimiento','estado','etiqueta','observacion']
+        fields = ['titulo','descripcion','fecha_vencimiento','estado','etiqueta','observacion','prioridad']
         
     def save(self,commit=True):
         tarea = super().save(commit=False)

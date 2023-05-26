@@ -37,6 +37,7 @@ def home(request):
     elif tipo_tareas == 'completada':
         tareas = Tareas.objects.filter(usuario_id=user,estado__estado='completada').order_by('-fecha_vencimiento')
     context = {'tareas':tareas}
+    
     return render(request, 'accounts/home.html', context=context)
 
 class DetalleTarea(View):
@@ -118,8 +119,16 @@ class CrearTarea(LoginRequiredMixin,CreateView):
     template_name = 'accounts/crear_tarea.html'
     success_url = reverse_lazy('home')
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['usuarios'] = User.objects.all()
+        return context
+    
     def form_valid(self,form):
         form.instance.usuario = self.request.user
+        usuario_destinatario_id = self.request.POST.get('usuario_destinatario')  # Obtener el ID del usuario destinatario del formulario
+        usuario_destinatario = User.objects.get(id=usuario_destinatario_id)  # Obtener el objeto User del usuario destinatario
+        form.instance.usuario = usuario_destinatario
         return super().form_valid(form)
 
 class ActualizarTarea(LoginRequiredMixin,UpdateView):
@@ -127,6 +136,11 @@ class ActualizarTarea(LoginRequiredMixin,UpdateView):
     form_class = CrearTareasForm
     template_name = 'accounts/crear_tarea.html'
     success_url = reverse_lazy('home')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['usuarios'] = User.objects.all()
+        return context
     
     def form_valid(self,form):
         form.instance.usuario = self.request.user
